@@ -351,7 +351,7 @@ rules = yara.compile(filepaths={
 
 path = input("input: ")
 dirs = os.listdir(path)
-
+counter = 0
 for root, dirs, files in os.walk(path):
     for f in files:
         try:
@@ -360,9 +360,11 @@ for root, dirs, files in os.walk(path):
         except:
             continue
         if matches == True:
+            counter+=1
             print(matches)
             print("Malware was detected. Would you like to remove it?")
             answer = input("Please type Y/N")
             if answer == "Y":
                 os.remove(f)
-        
+if counter == 0:
+    print("There are no viruses!")     
