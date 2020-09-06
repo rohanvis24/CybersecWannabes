@@ -353,16 +353,16 @@ path = input("input: ")
 dirs = os.listdir(path)
 
 for root, dirs, files in os.walk(path):
-	for f in files:
-		try:
-			pathsingle = os.path.join(root, f)
-			matches = rules.match("'" + pathsingle + "'")
-		except:
-			continue
-		if matches == true:
-			print(matches)
+    for f in files:
+        try:
+            pathsingle = os.path.join(root,f)
+            matches = rules.match("'" + pathsingle + "'")
+        except:
+            continue
+        if matches == True:
+            print(matches)
             print("Malware was detected. Would you like to remove it?")
             answer = input("Please type Y/N")
-            if (answer == "Y" )
+            if answer == "Y":
                 os.remove(f)
         
